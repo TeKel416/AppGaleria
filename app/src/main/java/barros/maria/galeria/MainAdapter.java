@@ -1,6 +1,7 @@
 package barros.maria.galeria;
 
 import android.graphics.Bitmap;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -24,7 +25,11 @@ public class MainAdapter extends RecyclerView.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        //Inflador = cria um elemento de interface referente a um objeto
+        LayoutInflater inflater = LayoutInflater.from(mainActivity);
+        //constrói o item a partir do layout (.xml) definido
+        View v = inflater.inflate(R.layout.list_item, parent, false);
+        return new ViewHolder(v);
     }
 
 
@@ -46,6 +51,6 @@ public class MainAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return photos.size();
     }
 }
